@@ -1,2 +1,28 @@
-<h1>Lists#edit</h1>
-<p>Find me in app/views/lists/edit.html.erb</p>
+<h1>Editing list</h1>
+
+<% form_for(@list) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>
+  <p>
+    <%= f.label :created %><br />
+    <%= f.datetime_select :created %>
+  </p>
+  <p>
+    <%= f.label :modified %><br />
+    <%= f.datetime_select :modified %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @list %> |
+<%= link_to 'Back', lists_path %>

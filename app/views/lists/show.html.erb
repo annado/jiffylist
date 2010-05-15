@@ -1,2 +1,23 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<p>
+  <b>Name:</b>
+  <%=h @list.name %>
+</p>
+
+<p>
+  <b>Id:</b>
+  <%=h @list.id %>
+</p>
+
+<p>
+  <b>Created:</b>
+  <%=h @list.created %>
+</p>
+
+<p>
+  <b>Modified:</b>
+  <%=h @list.modified %>
+</p>
+
+
+<%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', lists_path %>
