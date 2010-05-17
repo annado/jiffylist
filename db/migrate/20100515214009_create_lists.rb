@@ -2,9 +2,7 @@ class CreateLists < ActiveRecord::Migration
   def self.up
     create_table :lists do |t|
       t.string :name
-      t.string :id
-      t.timestamp :created
-      t.timestamp :modified
+      t.string :hash_id
 
       t.timestamps
     end

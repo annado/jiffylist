@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  list_id: MyString
+  checked: false
+  order: 1
+  list: 
+
+two:
+  title: MyString
+  list_id: MyString
+  checked: false
+  order: 1
+  list: 

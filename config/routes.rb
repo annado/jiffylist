@@ -1,7 +1,21 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :lists
+  map.resources :items
+
+  map.resources :lists, :has_many => :items
 
   map.connect '', :controller => 'lists'
+
+  map.connect "/items",
+    :controller => 'items'
+
+  map.connect "/list/:hash_id/items",
+    :controller => 'items',
+    :action => "create"
+
+  map.connect "/list/:hash_id",
+    :controller => 'lists',
+    :action => "show"
+    
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

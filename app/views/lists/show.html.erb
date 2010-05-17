@@ -1,23 +1,21 @@
-<p>
-  <b>Name:</b>
+<h1>
   <%=h @list.name %>
-</p>
+</h1>
 
-<p>
-  <b>Id:</b>
-  <%=h @list.id %>
-</p>
+<ul class="jlist">
+<% @items.each do |item| %>
+  <li><%=h item.checked %> <%=h item.title %> <%= link_to 'remove', item, :confirm => 'Are you sure?', :method => :delete %></li>
+<% end %>
+</ul>
 
-<p>
-  <b>Created:</b>
-  <%=h @list.created %>
-</p>
+<% form_for(@item, :url => '/list/' + @list.hash_id + '/items') do |f| %>
+  <%= f.error_messages %>
 
-<p>
-  <b>Modified:</b>
-  <%=h @list.modified %>
-</p>
+  <p>
+    <%= f.text_field :title, :size => 20, :class => 'text' %>
+    <%= f.submit 'Add', :class => 'submit' %>
+  </p>
+<% end %>
 
 
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+<div class="ft"><%= link_to 'Home', '/lists' %></div>
