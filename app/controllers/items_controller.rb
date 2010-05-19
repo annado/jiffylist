@@ -37,13 +37,33 @@ class ItemsController < ApplicationController
         flash[:notice] = 'Item was successfully created.'
         format.html { redirect_to('/list/' + params[:hash_id]) }
         format.xml  { render :xml => @item, :status => :created, :location => @item }
+        format.json  { render :json => @item, :status => :created }
       else
         format.html { redirect_to('/list/' + params[:hash_id]) }
         format.xml  { render :xml => @item.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @item.errors, :status => :unprocessable_entity }
       end
     end
   end
 
+  # PUT /items/1
+  # PUT /items/1.xml
+  def check
+    @item = Item.find(params[:id])
+
+    respond_to do |format|
+      if @item.update_attributes('checked' => !@item.checked)
+        flash[:notice] = 'Item was successfully updated.'
+        format.html { redirect_to('/list/' + @item.list.hash_id) }
+        format.xml  { head :ok }
+        format.xml  { head :ok, :json => @item }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @item.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
   # PUT /items/1
   # PUT /items/1.xml
   def update
@@ -52,7 +72,7 @@ class ItemsController < ApplicationController
     respond_to do |format|
       if @item.update_attributes(params[:item])
         flash[:notice] = 'Item was successfully updated.'
-        format.html { redirect_to(@item) }
+        format.html { redirect_to('/list/' + @item.list.hash_id) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -4,7 +4,10 @@
 
 <ul class="jlist">
 <% @items.each do |item| %>
-  <li><%=h item.checked %> <%=h item.title %> <%= link_to 'remove', item, :confirm => 'Are you sure?', :method => :delete %></li>
+  <li>
+      <%= link_to '', '/item/' + item.id.to_s + '/check', :class => 'jl-check' + (item.checked ? ' checked' : '') %>
+      <%=h item.title %>
+      <%= link_to 'remove', item, :confirm => 'Are you sure?', :method => :delete, :class => 'jl-delete' %></li>
 <% end %>
 </ul>
 

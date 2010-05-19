@@ -24,9 +24,11 @@ class ListsController < ApplicationController
     @items = @list.items
     @item = @list.items.new(:list => @list)
     
+    @list[:items] = @items
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @list }
+      format.json  { render :json => @list }
     end
   end
 

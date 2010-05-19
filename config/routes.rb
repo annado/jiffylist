@@ -16,6 +16,11 @@ ActionController::Routing::Routes.draw do |map|
     :controller => 'lists',
     :action => "show"
     
+
+  map.connect "/item/:id/check",
+    :controller => 'items',
+    :action => "check"
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

@@ -55,14 +55,37 @@ a:hover {
 .recent li {
 	margin-bottom: .3em;	
 }
-
-.jlist li {
-	margin-bottom: .5em;
-	padding-left: 40px;
-	background: url(/images/check-mark.png) no-repeat left center;
-}
 .jlist {
 	margin-bottom: 1em;
+}
+.jlist li {
+	vertical-align: middle;
+	position: relative;
+}
+
+.jlist .jl-check {
+	width: 32px; height: 32px;
+	margin: 0 3px 3px 0;
+	display: inline-block;
+	background: url(/images/unchecked.png) no-repeat left bottom;
+	vertical-align: bottom;
+}
+.jlist .checked {
+	background-image: url(/images/checked.png);
+}
+
+.jlist .jl-delete {
+	position: absolute;
+	right: 0; bottom: -2px;
+	visibility: hidden;
+	text-indent: 9999px;
+	width: 30px; height: 30px;
+	overflow: hidden;
+	display: block;
+	background: url(/images/delete.png) no-repeat left bottom;
+}
+.jlist li:hover a.jl-delete {
+	visibility: visible;
 }
 .ft {
 	margin-top: 3em;

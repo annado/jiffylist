@@ -8,7 +8,6 @@
   <%= stylesheet_link_tag 'http://yui.yahooapis.com/combo?3.1.1/build/cssreset/reset-min.css&3.1.1/build/cssfonts/fonts-min.css&3.1.1/build/cssgrids/grids-min.css'  %>
   <%= stylesheet_link_tag 'jiffy' %>
 
-
 </head>
 <body>
 
@@ -18,6 +17,7 @@
    <% end %>
 
 <%= yield %>
-
+<script src="http://yui.yahooapis.com/3.1.1/build/yui/yui-min.js"></script>
+<%= javascript_include_tag :defaults %>
 </body>
 </html>
